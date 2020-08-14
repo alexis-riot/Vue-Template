@@ -12,6 +12,10 @@ module.exports = {
   // modify the location of the generated HTML file.
   indexPath: process.env.NODE_ENV === 'production'
     ? '../resources/views/app.blade.php'
-    : 'index.html'
+    : 'index.html',
+
+    transpileDependencies: [
+        'vuetify'
+    ]
 }
 
