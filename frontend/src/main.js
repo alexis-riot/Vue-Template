@@ -1,12 +1,15 @@
 import Vue from 'vue'
-import store from './store'
-import router from './router'
-import vuetify from './plugins/vuetify'
+import './plugins/bootstrap-vue'
 import App from './App.vue'
+import router from './router'
+import store from './store'
+import ArgonDashboard from './plugins/argon/argon-dashboard'
 
-window.App = new Vue({
-    render: h => h(App),
-    store,
-    router,
-    vuetify,
-});
+Vue.config.productionTip = false
+Vue.use(ArgonDashboard)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')
