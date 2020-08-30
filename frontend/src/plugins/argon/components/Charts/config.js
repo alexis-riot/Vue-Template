@@ -1,4 +1,4 @@
-import { parseOptions } from "./components/Charts/optionHelpers";
+import { parseOptions } from "@/plugins/argon/components/Charts/optionHelpers";
 
 export const Charts = {
   mode: 'light',//(themeMode) ? themeMode : 'light';
@@ -138,7 +138,6 @@ function chartOptions(Chart) {
     ticks: {
       padding: 20
     },
-    maxBarThickness: 10
   });
 
   return options;

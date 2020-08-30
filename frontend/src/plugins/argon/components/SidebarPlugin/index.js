@@ -1,5 +1,6 @@
 import Sidebar from './SideBar.vue';
 import SidebarItem from './SidebarItem.vue';
+import SidebarDivider from "./SidebarDivider";
 
 const SidebarStore = {
   showSidebar: false,
@@ -37,6 +38,7 @@ const SidebarPlugin = {
     Vue.prototype.$sidebar = app.sidebarStore;
     Vue.component('side-bar', Sidebar);
     Vue.component('sidebar-item', SidebarItem);
+    Vue.component('sidebar-divider', SidebarDivider);
   }
 };
 

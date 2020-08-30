@@ -1,6 +1,19 @@
+const secure = false
+const target = "http://vue-test.test"
+
 module.exports = {
     devServer: {
-        proxy: 'http://laravel.test'
+        https: secure,
+        disableHostCheck: !secure,
+
+        proxy: {
+            '^/app': {
+                target: target,
+                changeOrigin: true,
+                secure: 'secure',
+                ws: true
+            },
+        }
     },
 
     // output built static files to Laravel's public dir.

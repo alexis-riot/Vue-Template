@@ -16,3 +16,6 @@ indent_size = 2
 
 [*.{css,scss,sass}]
 indent_size = 4
+
+[*.{jss}]
+indent_size = 2

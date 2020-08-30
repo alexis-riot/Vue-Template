@@ -2,6 +2,7 @@
   <div class="custom-control custom-checkbox"
        :class="{'disabled': disabled, 'form-check-inline': inline}">
     <input :id="cbId"
+           :name="name"
            class="custom-control-input"
            type="checkbox"
            :disabled="disabled"
@@ -22,6 +23,10 @@ export default {
     prop: "checked"
   },
   props: {
+    name: {
+      type: String,
+      description: "Input name"
+    },
     checked: {
       type: [Array, Boolean],
       description: "Whether checkbox is checked"

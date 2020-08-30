@@ -25,6 +25,8 @@
         </div>
         <slot v-bind="slotData">
             <input
+                    :name="name"
+                    ref="test"
                     :value="value"
                     v-on="listeners"
                     v-bind="$attrs"
@@ -43,7 +45,7 @@
         </div>
         <slot name="infoBlock"></slot>
         <slot name="helpBlock">
-            <div class="text-danger invalid-feedback" style="display: block;" :class="{'mt-2': hasIcon}" v-if="error">
+            <div class="text-danger text-left invalid-feedback ml-1" style="display: block;" :class="{'mt-2': hasIcon}" v-if="error">
                 {{ error }}
             </div>
         </slot>
@@ -58,18 +60,13 @@ export default {
       type: Boolean,
       description: "Whether input is required (adds an asterix *)"
     },
-    valid: {
-      type: Boolean,
-      description: "Whether is valid",
-      default: undefined
+    name: {
+      type: String,
+      description: "Input name"
     },
     label: {
       type: String,
       description: "Input label (text before input)"
-    },
-    error: {
-      type: String,
-      description: "Input error (below input)"
     },
     labelClasses: {
       type: String,
@@ -94,7 +91,9 @@ export default {
   },
   data() {
     return {
-      focused: false
+      focused: false,
+      error : '',
+      valid: undefined,
     };
   },
   computed: {
@@ -134,6 +133,10 @@ export default {
     onBlur(value) {
       this.focused = false;
       this.$emit("blur", value);
+    },
+    setError(text) {
+        this.error = text;
+        this.valid = false;
     }
   }
 };
